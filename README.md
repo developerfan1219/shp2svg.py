@@ -12,7 +12,7 @@ Generator:
   First you need to instantiate the class. The generator require two parameters: the output path where you want to create the new 
   files, and the width size, in pixels, what the svg file will be layout.
 
-      usage: generator = s2sSvgGenerator('outputPath',600)
+      usage: generator = s2s.SvgGenerator('outputPath',600)
   
   Continue with shapefile exploring function. Use printFields() method to know the layer fields names. With this method you can  
   chose which field you want to use as svg output file id.
@@ -27,4 +27,16 @@ Generator:
       
 Looper:
 
-  Like before, the first step is to instantiate the class: The looper require 
+  Like before, the first step is to instantiate the class: The looper require three params: The path to the container folder, the 
+  output path where files will be generated, and the width size, in pixels, like before.
+  
+      usage: looper = s2s.SvgLooper('pathToFolder','outputPath',600)
+      
+  Once the class is instantiated, you have to run the setupLooper method to storage all files and to print fields name to allow 
+  you to chose which field do you want as id for the svg geometries.
+  
+      usage: looper.setup()
+      
+  At least, you only have to call the run method passing the selected ID and wait for the result.
+  
+      usage: looper.run('selectedId')
