@@ -18,11 +18,11 @@ class SvgLooper:
             if '.shp' in file:
                 self.files.append(os.path.join(self.in_path, file))
 
-    def startLooper(self, id_field):
+    def run(self, id_field):
         for file in self.files:
             self.generator.run(file, id_field)
 
-    def setupLooper(self):
+    def setup(self):
         self.setFilesListed()
         print self.generator.printFields(self.files[0])
 
