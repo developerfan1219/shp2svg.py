@@ -1,9 +1,11 @@
 # shp2svg.py
-Python library to convert shapefiles in svg maps with geometries' ids from shapefile fields.
+Python library to convert shapefiles in svg maps including a fields from the shapefile as svg geometries id.
 
 Start importing the library to your python console:
 
   	usage: import shp2svg as s2s
+
+The library contains two classes: the generator (translator between shp and svg) and a looper. The looper allows you to batch not only one shp nor a concret folder. 
 
 Continue with shapefile exploring function. Use printFields() method to know the layer fields names. With this method you can chose which field you want to use as svg output file id.
 
