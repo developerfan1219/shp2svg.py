@@ -11,7 +11,7 @@ class SvgLooper:
         self.in_path = os.path.realpath(in_path)
         self.out_path = out_path
         self.pixels_size = pixels_size
-        self.generator = SvgGenerator(in_path, out_path, pixels_size)
+        self.generator = SvgGenerator(out_path, pixels_size)
 
     def setFilesListed(self):
         for file in os.listdir(self.in_path):
@@ -20,7 +20,7 @@ class SvgLooper:
 
     def startLooper(self, id_field):
         for file in self.files:
-            self.generator.runSvgGenerator(file, id_field)
+            self.generator.run(file, id_field)
 
     def setupLooper(self):
         self.setFilesListed()
@@ -28,8 +28,7 @@ class SvgLooper:
 
 
 class SvgGenerator:
-    def __init__(self, in_file, out_path, width_pixels):
-        self.in_file = os.path.realpath(in_file)
+    def __init__(self, out_path, width_pixels):
         self.out_path = os.path.realpath(out_path)
         self.width_pixels = width_pixels
 
@@ -157,7 +156,7 @@ class SvgGenerator:
     def sanitizeStr(self, string):
         return string.replace(' ', '_').replace('/', '_').replace(',', '_').replace('.', '_').replace('-', '_')
 
-    def runSvgGenerator(self, in_file, id_name):
+    def run(self, in_file, id_name):
 
         # Definim les variables d'entrada per al proces
         layer = shapefile.Reader(in_file)
