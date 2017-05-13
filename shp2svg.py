@@ -1,10 +1,6 @@
 import os
 import shapefile
 
-print 'Welcome to SvgGenerator. To start the workflow you have to initialize svgLooper class passing 5 parameters: in_path (to the shapefiles folder container), out_path (to the future svg folder container), field_name (field what you want as svg geometries id), pixels_size (of the output svg file).'
-print
-
-
 class SvgLooper:
     def __init__(self, in_path, out_path, pixels_size):
         self.files = []
@@ -39,7 +35,7 @@ class SvgGenerator:
         for line in output:
             file.write(line.encode('utf-8'))
         file.close()
-        print 'SVG generat. Verifica que realment es aixi, al cap i a la fi soc un socioleg jugant a programar'
+        print 'SVG generated: ' + svg_filename
 
     def printFields(self, ifile):
         fieldsList = []
